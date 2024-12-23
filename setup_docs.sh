@@ -39,25 +39,41 @@ cat > cline_docs/CHANGELOG.md << 'EOL'
 - Initial setup
 EOL
 
-# Create .cline_rules file for project-specific system prompts
-cat > .cline_rules << 'EOL'
-# Project-Specific Rules and Guidelines
+# Create .cline_rules file
+cat > .cline_rules << EOL
+# ${PROJECT_NAME} Documentation Protocol
 
-## Project Context
-- Project Name: ${PROJECT_NAME}
-- Purpose: [Brief description of project purpose]
+## Initialize
+On first interaction, check for project documentation at ./cline_docs/
+If not present, create basic documentation structure:
 
-## Development Rules
-- [Add project-specific development rules]
-- [Add coding standards specific to this project]
+\`\`\`
+./cline_docs/
+├── README.md      # Project overview
+├── ARCHITECTURE.md # Technical design
+├── TODO.md        # Task tracking
+└── CHANGELOG.md   # Version history
+\`\`\`
 
-## Project-Specific Prompts
-- [Add custom system prompts for this project]
-- [Add specific instructions for AI interactions]
+## Update Triggers
+- Code changes: Update relevant docs within 24h
+- Architecture changes: Update immediately
+- New tasks: Update TODO.md
+- Releases: Update CHANGELOG.md
 
-## Workflow Guidelines
-- [Add project workflow requirements]
-- [Add deployment/testing requirements]
+## Standards
+- Use Markdown
+- Include timestamps
+- Reference related commits
+- Document key decisions
+
+## Git Workflow
+- Feature branches
+- Regular commits
+- Tag versions
+
+## Project-Specific Rules
+[Add any project-specific rules here]
 EOL
 
 echo "Documentation structure created in cline_docs/"
